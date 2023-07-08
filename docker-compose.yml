@@ -1,0 +1,19 @@
+version: "3"
+services:
+  #App
+  app:
+    container_name: batch-request_app
+    build:
+      dockerfile: Dockerfile
+      context: ./
+    volumes:
+      - ./:/app
+    ports:
+      - 9292:8080
+    networks:
+      - batch-request
+
+#Docker Networks
+networks:
+  batch-request:
+    driver: bridge
